@@ -12,7 +12,7 @@ load_dotenv()
 BEARER_TOKEN = os.getenv('BEARER_TOKEN')
 DEFAULT_USERNAME = os.getenv('DEFAULT_USERNAME', 'Whitebox_Ke')
 DB_NAME = os.getenv('DB_NAME', 'twitter_posts.db')
-SCHEDULE_HOURS = int(os.getenv('SCHEDULE_HOURS', 12))
+SCHEDULE_HOURS = int(os.getenv('SCHEDULE_HOURS', 8))
 FETCH_COUNT = int(os.getenv('FETCH_COUNT', 100))
 
 def init_database():
@@ -139,10 +139,11 @@ def schedule_fetcher():
     print(f"⏰ Scheduling automatic fetches for @{DEFAULT_USERNAME} twice daily...")
     
     # Schedule at 8 AM and 8 PM
-    schedule.every().day.at("08:00").do(fetch_default_user_posts)
-    schedule.every().day.at("20:00").do(fetch_default_user_posts)
+    schedule.every().day.at("06:00").do(fetch_default_user_posts)
+    schedule.every().day.at("12:00").do(fetch_default_user_posts)
+    schedule.every().day.at("19:00").do(fetch_default_user_posts)
     
-    print("✅ Scheduled: 8:00 AM and 8:00 PM daily")
+    print("✅ Scheduled: 6:00 AM , 12:00 PM and 7:00 PM daily")
     print(f"🎯 Only fetching from: @{DEFAULT_USERNAME}")
     
     # Do an initial fetch immediately

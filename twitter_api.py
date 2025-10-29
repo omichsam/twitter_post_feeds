@@ -103,6 +103,6 @@ def health_check():
 
 if __name__ == '__main__':
     print(f"🚀 Starting API server for default user: @{DEFAULT_USERNAME}")
-    print("📡 Server running on http://127.0.0.1:5000")
+    print("📡 Server running on http://localhost:8010")
     print("🔗 CORS enabled for all origins")
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=8010)
