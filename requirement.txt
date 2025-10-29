@@ -1,0 +1,7 @@
+requests
+pandas
+tabulate
+schedule
+python-dotenv
+flask
+flask-cors
